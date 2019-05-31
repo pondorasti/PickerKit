@@ -15,6 +15,16 @@ class PickerKitTests: XCTestCase {
         ("testExample", testExample),
     ]
     
-    func testExample() {}
-    
+    func testExample() {
+        let colors = [UIColor.red, UIColor.blue, UIColor.purple, UIColor.orange,
+                      UIColor.green, UIColor.red, UIColor.blue, UIColor.purple,
+                      UIColor.orange, UIColor.green]
+
+        let picker = PickerView(colorEntries: colors)
+
+        XCTAssertEqual(
+            picker.colorEntries,
+            colors
+        )
+    }
 }

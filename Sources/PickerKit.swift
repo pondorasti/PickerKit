@@ -49,7 +49,7 @@ class PickerView: UIView {
         return gradientLayer
     }()
 
-    private var colorEntries = [UIColor]()
+    private(set) var colorEntries = [UIColor]()
     private let focusRingRadiusDelta: CGFloat = 10
 
     private func getSelectedColorIndex(for contentOffset: CGPoint) -> Int {
@@ -205,23 +205,4 @@ extension PickerView: UIScrollViewDelegate {
         let selectedColorIndex = getSelectedColorIndex(for: scrollView.contentOffset)
         focusRingLayer.borderColor = colorEntries[selectedColorIndex].cgColor
     }
-}
-
-// MARK: - ColorCircleCollectionViewCell
-class ColorCircleCollectionViewCell: UICollectionViewCell {
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        layer.cornerRadius = frame.height / 2
-    }
-}
-
-extension ColorCircleCollectionViewCell: IdentifiableCell {
-    static var identifier: String {
-        return String(describing: self)
-    }
-}
-
-protocol IdentifiableCell {
-    static var identifier: String { get }
 }
