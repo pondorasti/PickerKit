@@ -117,9 +117,9 @@ class PickerView: UIView {
     private func configureFocusRingLayer() {
         let radius = (getItemWidth(for: entriesPickerCollectionView) + focusRingRadiusDelta) / 2
 
-        let x = self.bounds.midX - radius
-        let y = self.bounds.midY - radius
-        focusRingLayer.frame = CGRect(x: x, y: y,
+        let xPos = self.bounds.midX - radius
+        let yPos = self.bounds.midY - radius
+        focusRingLayer.frame = CGRect(x: xPos, y: yPos,
                                       width: radius * 2, height: radius * 2)
         focusRingLayer.cornerRadius = radius
 
@@ -133,7 +133,10 @@ extension PickerView: UICollectionViewDataSource {
         return colorEntries.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = entriesPickerCollectionView.dequeueReusableCell(
             withReuseIdentifier: ColorCircleCollectionViewCell.identifier,
             for: indexPath
@@ -174,15 +177,27 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
         return CGSize(width: size, height: size)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         return getItemSize(for: collectionView)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
         return lineSpacing
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
         let sideInsets = (collectionView.frame.width - getItemWidth(for: collectionView)) / 2
 
         return UIEdgeInsets(top: 0, left: sideInsets, bottom: 0, right: sideInsets)
@@ -191,7 +206,11 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UIScrollViewDelegate
 extension PickerView: UIScrollViewDelegate {
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>
+    ) {
         let indexOfItem = CGFloat(getSelectedColorIndex(for: targetContentOffset.pointee))
         let itemWidth = getItemSize(for: entriesPickerCollectionView).width + lineSpacing
 
