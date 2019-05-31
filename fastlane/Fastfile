@@ -75,16 +75,16 @@ platform :ios do
       scheme: "PickerKit-iOS",
       clean: true
     )
-    # Perform tvOS Tests
-    scan(
-      project: "PickerKit.xcodeproj",
-      scheme: "PickerKit-tvOS",
-      clean: true
-    )
-    # Perform macOS Tests
-    spm(command: "test")
-    # Delete SPM build artifacts
-    spm(command: "clean")
+#    # Perform tvOS Tests
+#    scan(
+#      project: "PickerKit.xcodeproj",
+#      scheme: "PickerKit-tvOS",
+#      clean: true
+#    )
+#    # Perform macOS Tests
+#    spm(command: "test")
+#    # Delete SPM build artifacts
+#    spm(command: "clean")
   end
 
   desc "Run Dependency-Manager compatibility tests"
