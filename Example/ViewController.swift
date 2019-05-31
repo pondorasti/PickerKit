@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         configureColorPickerViewLayout()
+        configureColorPickerViewStyling()
     }
 
     // MARK: - Methods
@@ -42,8 +43,8 @@ class ViewController: UIViewController {
 
     /// Configure your views style and properties for your own needs
     private func configureColorPickerViewStyling() {
-        colorPickerView.backgroundColor = .white
-        view.backgroundColor = .gray
+        colorPickerView.backgroundColor = .black
+        view.backgroundColor = .black
     }
 
 }

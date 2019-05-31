@@ -7,10 +7,9 @@
 //
 
 // Include Foundation
-@_exported import Foundation
 import UIKit
 
-class PickerView: UIView {
+open class PickerView: UIView {
     // MARK: - Properties
     private(set) lazy var entriesPickerCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -82,18 +81,18 @@ class PickerView: UIView {
         entriesPickerCollectionView.delegate = self
     }
 
-    init(colorEntries: [UIColor]) { //todo: ask for fadeout
+    public init(colorEntries: [UIColor]) { //todo: ask for fadeout
         self.init()
 
         self.colorEntries = colorEntries
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Lifecycle
-    override func updateConstraints() {
+    override open func updateConstraints() {
         if entriesPickerCollectionView.constraints.isEmpty {
             entriesPickerCollectionView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -106,7 +105,7 @@ class PickerView: UIView {
         super.updateConstraints()
     }
 
-    override func draw(_ rect: CGRect) {
+    override open func draw(_ rect: CGRect) {
         configureFocusRingLayer()
 
         fadeOutGradientLayer.frame = bounds
@@ -129,11 +128,11 @@ class PickerView: UIView {
 
 // MARK: - UICollectionViewDataSource
 extension PickerView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colorEntries.count
     }
 
-    func collectionView(
+    public func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
@@ -152,7 +151,7 @@ extension PickerView: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension PickerView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(
             at: indexPath,
             at: .centeredHorizontally,
@@ -177,7 +176,7 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
         return CGSize(width: size, height: size)
     }
 
-    func collectionView(
+    public func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
@@ -185,7 +184,7 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
         return getItemSize(for: collectionView)
     }
 
-    func collectionView(
+    public func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         minimumLineSpacingForSectionAt section: Int
@@ -193,7 +192,7 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
         return lineSpacing
     }
 
-    func collectionView(
+    public func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAt section: Int
@@ -206,7 +205,7 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UIScrollViewDelegate
 extension PickerView: UIScrollViewDelegate {
-    func scrollViewWillEndDragging(
+    public func scrollViewWillEndDragging(
         _ scrollView: UIScrollView,
         withVelocity velocity: CGPoint,
         targetContentOffset: UnsafeMutablePointer<CGPoint>
@@ -220,7 +219,7 @@ extension PickerView: UIScrollViewDelegate {
         )
     }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let selectedColorIndex = getSelectedColorIndex(for: scrollView.contentOffset)
         focusRingLayer.borderColor = colorEntries[selectedColorIndex].cgColor
     }
