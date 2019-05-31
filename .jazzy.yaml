@@ -1,0 +1,7 @@
+# PickerKit document generator jazzy settings
+
+copyright: Copyright 2019 PickerKit
+author: Alexandru Turcanu
+xcodebuild_arguments: [-target, PickerKit-iOS]
+clean: true
+output: ./Documentation
