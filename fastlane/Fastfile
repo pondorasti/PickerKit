@@ -97,10 +97,10 @@ platform :ios do
     )
     # Pod lib lint to ensure CocoaPods compatibility
     pod_lib_lint(allow_warnings: true)
-    # SPM Build to ensure Swift Package Manager compatibility
-    spm(command: "build")
-    # Delete SPM build artifacts
-    spm(command: "clean")
+#    # SPM Build to ensure Swift Package Manager compatibility
+#    spm(command: "build")
+#    # Delete SPM build artifacts
+#    spm(command: "clean")
   end
 
 end

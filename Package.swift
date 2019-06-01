@@ -11,6 +11,7 @@ let package = Package(
         ),
     ],
     dependencies: [],
+//    platforms: [.iOS(.v12)],
     targets: [
         .target(
             name: "PickerKit",
@@ -23,4 +24,5 @@ let package = Package(
             path: "Tests"
         ),
     ]
+
 )
