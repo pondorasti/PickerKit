@@ -78,29 +78,25 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 ℹ️ Describe the usage of your Kit
 
 ## Contributing
-Contributions are very welcome 🙌
+Thank you for your interest in the project! Contributions are very welcome 🙌, feel free to collaborate with ideas 💭, issues ⁉️ and/or pull requests 🔃.
+
+Make sure to read these guides before getting started:
+
+- [Code of Conduct](https://github.com/Pondorasti/PickerKit/wiki/Code-of-Conduct)
+- [Contribution Guidelines](https://github.com/Pondorasti/PickerKit/wiki/Contribution-Guidelines)
+
+If you use PickerKit in your app I'd love to hear about it and feature your app here!
+
+## Author
+
+Written by Alexandru Turcanu
+
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/pondorasti.svg?style=social)](https://twitter.com/pondorasti)
+
+[![Twitter Follow](https://img.shields.io/github/followers/pondorasti.svg?style=social&label=Follow)](https://github.com/pondorasti)
+
 
 ## License
 
-```
-PickerKit
-Copyright (c) 2019 PickerKit alexandru_turcanu@ymail.com
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
+PickerKit is available under the MIT license. See the [LICENSE](https://github.com/Pondorasti/PickerKit/blob/master/LICENSE) file for more info.
