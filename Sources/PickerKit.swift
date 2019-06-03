@@ -33,8 +33,12 @@ open class PickerView: UIView {
         return layer
     }()
 
-    public var shouldFadeOutView = false
-    private lazy var fadeOutGradientLayer: CAGradientLayer = {
+    public var shouldFadeOutView: Bool = true {
+        didSet {
+            layer.mask = shouldFadeOutView ? fadeOutGradientLayer : nil
+        }
+    }
+    private lazy var fadeOutGradientLayer: CAGradientLayer? = {
         let gradientLayer = CAGradientLayer()
 
         let backgroundColor = self.backgroundColor ?? .white
@@ -73,8 +77,9 @@ open class PickerView: UIView {
         super.init(frame: frame)
 
         addSubview(entriesPickerCollectionView)
-        entriesPickerCollectionView.register(ColorCircleCollectionViewCell.self,
-                                             forCellWithReuseIdentifier: ColorCircleCollectionViewCell.identifier
+        entriesPickerCollectionView.register(
+            ColorCircleCollectionViewCell.self,
+            forCellWithReuseIdentifier: ColorCircleCollectionViewCell.identifier
         )
 
         entriesPickerCollectionView.dataSource = self
@@ -108,8 +113,9 @@ open class PickerView: UIView {
     override open func draw(_ rect: CGRect) {
         configureFocusRingLayer()
 
-        fadeOutGradientLayer.frame = bounds
+        fadeOutGradientLayer?.frame = bounds
         layer.mask = fadeOutGradientLayer
+
     }
 
     // MARK: - Methods
