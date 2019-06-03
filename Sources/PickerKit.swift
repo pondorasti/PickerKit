@@ -11,6 +11,29 @@ import UIKit
 
 open class PickerView: UIView {
     // MARK: - Properties
+    @IBInspectable public var lineSpacing: CGFloat = 12 {
+        didSet {
+            entriesPickerCollectionView.collectionViewLayout.invalidateLayout()
+        }
+    }
+    @IBInspectable public var focusRingRadiusDelta: CGFloat = 10 {
+        didSet {
+            self.setNeedsDisplay() // TODO: look for more efficient way
+        }
+    }
+    @IBInspectable public var shouldFadeOutView: Bool = true {
+        didSet {
+            layer.mask = shouldFadeOutView ? fadeOutGradientLayer : nil
+        }
+    }
+    public var decelerationRate: UIScrollView.DecelerationRate = UIScrollView.DecelerationRate(rawValue: 0.5) {
+        didSet {
+            entriesPickerCollectionView.decelerationRate = decelerationRate
+        }
+    }
+
+    private(set) var colorEntries = [UIColor]()
+
     private(set) lazy var entriesPickerCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
@@ -33,12 +56,7 @@ open class PickerView: UIView {
         return layer
     }()
 
-    public var shouldFadeOutView: Bool = true {
-        didSet {
-            layer.mask = shouldFadeOutView ? fadeOutGradientLayer : nil
-        }
-    }
-    private lazy var fadeOutGradientLayer: CAGradientLayer? = {
+    private lazy var fadeOutGradientLayer: CAGradientLayer = {
         let gradientLayer = CAGradientLayer()
 
         let backgroundColor = self.backgroundColor ?? .white
@@ -51,26 +69,6 @@ open class PickerView: UIView {
 
         return gradientLayer
     }()
-
-    private(set) var colorEntries = [UIColor]()
-    private let focusRingRadiusDelta: CGFloat = 10
-
-    private func getSelectedColorIndex(for contentOffset: CGPoint) -> Int {
-        let itemWidth = getItemWidth(for: entriesPickerCollectionView) + lineSpacing
-        let rawIndex = Int((contentOffset.x / itemWidth).rounded())
-        let index: Int
-
-        switch rawIndex {
-        case ..<0: // underflow
-            index = 0
-        case colorEntries.count...: // overflow
-            index = colorEntries.count - 1
-        default: // index in range
-            index = rawIndex
-        }
-
-        return index
-    }
 
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -113,12 +111,29 @@ open class PickerView: UIView {
     override open func draw(_ rect: CGRect) {
         configureFocusRingLayer()
 
-        fadeOutGradientLayer?.frame = bounds
+        fadeOutGradientLayer.frame = bounds
         layer.mask = fadeOutGradientLayer
 
     }
 
     // MARK: - Methods
+    private func getSelectedColorIndex(for contentOffset: CGPoint) -> Int {
+        let itemWidth = getItemWidth(for: entriesPickerCollectionView) + lineSpacing
+        let rawIndex = Int((contentOffset.x / itemWidth).rounded())
+        let index: Int
+
+        switch rawIndex {
+        case ..<0: // underflow
+            index = 0
+        case colorEntries.count...: // overflow
+            index = colorEntries.count - 1
+        default: // index in range
+            index = rawIndex
+        }
+
+        return index
+    }
+
     private func configureFocusRingLayer() {
         let radius = (getItemWidth(for: entriesPickerCollectionView) + focusRingRadiusDelta) / 2
 
@@ -168,10 +183,6 @@ extension PickerView: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension PickerView: UICollectionViewDelegateFlowLayout {
-    fileprivate var lineSpacing: CGFloat {
-        return 12
-    }
-
     fileprivate func getItemWidth(for collectionView: UICollectionView) -> CGFloat {
         let size = collectionView.frame.height - 20
         return size

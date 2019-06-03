@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     private let toggleFadeButton: UIButton = {
         let button = UIButton(type: .roundedRect)
 
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(toggleFadebuttonTapped), for: .touchUpInside)
         button.setTitle("Toggle Fade", for: UIControl.State.normal)
 
         button.backgroundColor = .black
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         configureToggleFadeButton()
     }
 
-    @objc func buttonTapped() {
+    @objc func toggleFadebuttonTapped() {
         colorPickerView.shouldFadeOutView = !colorPickerView.shouldFadeOutView
     }
 
