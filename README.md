@@ -1,11 +1,12 @@
-<p align="center">
-   <img width="200" src="https://raw.githubusercontent.com/SvenTiigi/SwiftKit/gh-pages/readMeAssets/SwiftKitLogo.png" alt="PickerKit Logo">
-</p>
+# PickerKit
 
 <p align="center">
    <a href="https://developer.apple.com/swift/">
       <img src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat" alt="Swift 5.0">
    </a>
+   <a href="https://travis-ci.com/Pondorasti/PickerKit">
+      <img src="https://travis-ci.org/Pondorasti/PickerKit.svg?branch=master" alt="CI Status">
+   </a>   
    <a href="http://cocoapods.org/pods/PickerKit">
       <img src="https://img.shields.io/cocoapods/v/PickerKit.svg?style=flat" alt="Version">
    </a>
@@ -20,12 +21,7 @@
    </a>
 </p>
 
-# PickerKit
-
-<p align="center">
 PickerKit is an iOS framework that streamlines the stock UIPicker into a gesture based UI with a minimalistic look, allowing to effortlessly pick something from a pool of entries(right now it only has support for colors).
-
-</p>
 
 ## Features
 
