@@ -79,6 +79,7 @@
 		3D9C432F2274629C000A6585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DB91AC4229AC263002668DA /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		C50ABD8322A1147A00AF45FF /* ColorCircleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCircleCollectionViewCell.swift; sourceTree = "<group>"; };
+		C59106D122A5330A0046ED9E /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +145,7 @@
 				3D9C42D622745C9D000A6585 /* Fastfile */,
 				3D9C42D222745B48000A6585 /* LICENSE */,
 				3D9C42D522745B48000A6585 /* README.md */,
+				C59106D122A5330A0046ED9E /* CODE_OF_CONDUCT.md */,
 				3D9C42DB22745DB0000A6585 /* .gitignore */,
 				3D9C42D822745DAF000A6585 /* .jazzy.yaml */,
 				3D9C42D922745DAF000A6585 /* .swiftlint.yml */,

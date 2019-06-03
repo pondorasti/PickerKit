@@ -5,7 +5,7 @@
       <img src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat" alt="Swift 5.0">
    </a>
    <a href="https://travis-ci.com/Pondorasti/PickerKit">
-      <img src="https://travis-ci.org/Pondorasti/PickerKit.svg?branch=master" alt="CI Status">
+      <img src="https://travis-ci.com/Pondorasti/PickerKit.svg?branch=master" alt="CI Status">
    </a>   
    <a href="http://cocoapods.org/pods/PickerKit">
       <img src="https://img.shields.io/cocoapods/v/PickerKit.svg?style=flat" alt="Version">
