@@ -18,7 +18,7 @@ open class PickerView: UIView {
     }
     @IBInspectable public var focusRingRadiusDelta: CGFloat = 10 {
         didSet {
-            self.setNeedsDisplay() // TODO: look for more efficient way
+            self.setNeedsDisplay(focusRingLayer.frame)
         }
     }
     @IBInspectable public var shouldFadeOutView: Bool = true {

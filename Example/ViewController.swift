@@ -50,11 +50,10 @@ class ViewController: UIViewController {
         configureToggleFadeButton()
     }
 
+    // MARK: - Methods
     @objc func toggleFadebuttonTapped() {
         colorPickerView.shouldFadeOutView = !colorPickerView.shouldFadeOutView
     }
-
-    // MARK: - Methods
 
     /// Set up layout constraints
     private func configureColorPickerViewLayout() {
