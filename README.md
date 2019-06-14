@@ -115,6 +115,10 @@ A floating-point value that determines the spacing between each entry view. Defa
 colorPickerView.lineSpacing = 12
 ~~~
 
+<p align="center">
+   <image src="http://giphygifs.s3.amazonaws.com/media/2YegpyGZpGnKWwWzEE/giphy.gif">
+</p>
+
 ### Notes
 
 At the moment the framework does not support high customizability nor deep access control over it, but any feature request is kindly appreciated.
