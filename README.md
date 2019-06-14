@@ -85,7 +85,39 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 ## Usage
 
-ℹ️ Describe the usage of your Kit
+### Creating a PickerView
+
+Creating a PickerView is as easy as just giving an array of UIColors. The view's contents, color entries, will resize accordingly to the PickerView's height.
+
+~~~swift
+let colorPickerView = PickerView(
+   colorEntries: [UIColor.red, UIColor.blue, UIColor.purple, UIColor.orange, UIColor.green]
+)
+~~~
+
+### Customizing the Appearance
+
+A Boolean value that controls whether the fade out gradient is visible. Default value is true.
+
+~~~swift
+colorPickerView.shouldFadeOutView = true
+~~~
+
+A floating-point value that determines the radius difference between the entry item and the focus ring. Default value is 10.
+    
+~~~swift
+colorPickerView.focusRingRadiusDelta = 10
+~~~
+
+A floating-point value that determines the spacing between each entry view. Default value is 12.
+    
+~~~swift
+colorPickerView.lineSpacing = 12
+~~~
+
+### Notes
+
+At the moment the framework does not support high customizability nor deep access control over it, but any feature request is kindly appreciated.
 
 ## Contributing
 Thank you for your interest in the project! Contributions are very welcome 🙌, feel free to collaborate with ideas 💭, issues ⁉️ and/or pull requests 🔃.
