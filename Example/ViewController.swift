@@ -39,6 +39,17 @@ class ViewController: UIViewController {
 
         return button
     }()
+    private let decelarationRateLabel: UILabel = {
+        let label = UILabel()
+
+        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Decelaration Rate: 0.5"
+
+        return label
+    }()
+
+    private let decelarationRateSlider: UISlider = UISlider()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -47,12 +58,26 @@ class ViewController: UIViewController {
         configureColorPickerViewLayout()
         configureColorPickerViewStyling()
 
+        configuredecelarationRateViews()
         configureToggleFadeButton()
     }
 
     // MARK: - Methods
-    @objc func toggleFadebuttonTapped() {
+    @objc private func toggleFadebuttonTapped() {
         colorPickerView.shouldFadeOutView = !colorPickerView.shouldFadeOutView
+    }
+
+    @objc private func handleDecelarationRateSlider(_ slider: UISlider) {
+        colorPickerView.decelerationRate = UIScrollView.DecelerationRate(
+            rawValue: UIScrollView.DecelerationRate.RawValue(slider.value)
+        )
+
+        decelarationRateLabel.text = "Decelaration Rate: \(slider.value)"
+    }
+
+    /// Configure your views style and properties for your own needs
+    private func configureColorPickerViewStyling() {
+        view.backgroundColor = .white
     }
 
     /// Set up layout constraints
@@ -67,18 +92,32 @@ class ViewController: UIViewController {
         colorPickerView.heightAnchor.constraint(equalToConstant: 64).isActive = true
     }
 
-    /// Set up layout constraints
     private func configureToggleFadeButton() {
         view.addSubview(toggleFadeButton)
 
         toggleFadeButton.translatesAutoresizingMaskIntoConstraints = false
-        toggleFadeButton.topAnchor.constraint(equalTo: colorPickerView.bottomAnchor, constant: 32).isActive = true
+        toggleFadeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        toggleFadeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        toggleFadeButton.topAnchor.constraint(equalTo: decelarationRateSlider.bottomAnchor, constant: 32).isActive = true
         toggleFadeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 
-    /// Configure your views style and properties for your own needs
-    private func configureColorPickerViewStyling() {
-        view.backgroundColor = .white
-    }
+    private func configuredecelarationRateViews() {
+        view.addSubview(decelarationRateLabel)
+        view.addSubview(decelarationRateSlider)
 
+        decelarationRateLabel.topAnchor.constraint(equalTo: colorPickerView.bottomAnchor, constant: 32).isActive = true
+        decelarationRateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+
+        decelarationRateSlider.addTarget(self, action: #selector(handleDecelarationRateSlider), for: .allEvents)
+        decelarationRateSlider.setValue(Float(colorPickerView.decelerationRate.rawValue), animated: false)
+
+        decelarationRateSlider.translatesAutoresizingMaskIntoConstraints = false
+
+        decelarationRateSlider.translatesAutoresizingMaskIntoConstraints = false
+        decelarationRateSlider.topAnchor.constraint(equalTo: decelarationRateLabel.bottomAnchor, constant: 8).isActive = true
+        decelarationRateSlider.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        decelarationRateSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        decelarationRateSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+    }
 }
