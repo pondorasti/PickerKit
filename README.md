@@ -23,12 +23,22 @@
 
 PickerKit is an iOS framework that streamlines the stock UIPicker into a gesture based UI with a minimalistic look, allowing to effortlessly pick something from a pool of entries(right now it only has support for colors).
 
+<p align="center">
+   <image src="https://github.com/Pondorasti/PickerKit/blob/master/Assets/PickerKit%20Preview%20GIF.gif">
+</p>
+   
 ## Features
 
 - [x] Entries automatically resize based on height of the container (PickerView)
 - [x] IBInspectable properties
 - [x] Easy to set-up and customize for your own needs
 - [ ] Entries Collection View Cell based on Generics for ease of customisation
+
+## Requirements
+
+- Xcode 10 and later
+- iOS 10 and later
+- Swift 5 and later
 
 ## Example
 
