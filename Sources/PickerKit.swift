@@ -11,21 +11,29 @@ import UIKit
 
 open class PickerView: UIView {
     // MARK: - Properties
+
+    /// A floating-point value that determines the spacing between each entry view.
     @IBInspectable public var lineSpacing: CGFloat = 12 {
         didSet {
             entriesPickerCollectionView.collectionViewLayout.invalidateLayout()
         }
     }
+
+    /// A floating-point value that determines the radius difference between the entry item and the focus ring.
     @IBInspectable public var focusRingRadiusDelta: CGFloat = 10 {
         didSet {
             self.setNeedsDisplay(focusRingLayer.frame)
         }
     }
+
+    /// A Boolean value that controls whether the fade out gradient is visible.
     @IBInspectable public var shouldFadeOutView: Bool = true {
         didSet {
             layer.mask = shouldFadeOutView ? fadeOutGradientLayer : nil
         }
     }
+
+    /// Decelaration rate for the scroll view.
     public var decelerationRate: UIScrollView.DecelerationRate = UIScrollView.DecelerationRate(rawValue: 0.5) {
         didSet {
             entriesPickerCollectionView.decelerationRate = decelerationRate
@@ -84,7 +92,8 @@ open class PickerView: UIView {
         entriesPickerCollectionView.delegate = self
     }
 
-    public init(colorEntries: [UIColor]) { //todo: ask for fadeout
+    /// Initializes and returns a new PickerView object with the specified color entries.
+    public init(colorEntries: [UIColor]) {
         self.init()
 
         self.colorEntries = colorEntries
@@ -113,7 +122,6 @@ open class PickerView: UIView {
 
         fadeOutGradientLayer.frame = bounds
         layer.mask = fadeOutGradientLayer
-
     }
 
     // MARK: - Methods
