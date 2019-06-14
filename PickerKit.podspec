@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                      = "PickerKit"
-  s.version                   = "0.1.0"
+  s.version                   = "0.1.1"
   s.summary                   = "PickerKit"
   s.homepage                  = "https://github.com/Pondorasti/PickerKit"
   s.license                   = { :type => "MIT", :file => "LICENSE" }
