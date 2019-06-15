@@ -87,12 +87,18 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 ### Creating a PickerView
 
-Creating a PickerView is as easy as just giving an array of UIColors. The view's contents, color entries, will resize accordingly to the PickerView's height.
+Creating a PickerView is as easy as just giving an array of UIColors. The view's contents, color entries, will resize accordingly to the PickerView's height. This view needs to infer it's height and width from the parent in order to work properly.
 
 ~~~swift
 let colorPickerView = PickerView(
    colorEntries: [UIColor.red, UIColor.blue, UIColor.purple, UIColor.orange, UIColor.green]
 )
+~~~
+
+Retrieving the selected color, this value is accesible in the selectedEntry property. Setting this value to a index in range of the colors array will automatically animate and scroll to that index.
+
+~~~swift
+colorPickerView.selectedEntry = 2
 ~~~
 
 ### Customizing the Appearance
