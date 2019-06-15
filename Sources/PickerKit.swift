@@ -40,6 +40,22 @@ open class PickerView: UIView {
         }
     }
 
+    /// An integer value representing the selected entry.
+    /// Setting this property with a value will automatically scroll to the entry that has that index.
+    public var selectedEntry: Int {
+        get {
+            return getSelectedColorIndex(for: entriesPickerCollectionView.contentOffset)
+        }
+
+        set {
+            entriesPickerCollectionView.scrollToItem(
+                at: IndexPath(row: newValue, section: 0),
+                at: .centeredHorizontally,
+                animated: true
+            )
+        }
+    }
+
     private(set) var colorEntries = [UIColor]()
 
     private(set) lazy var entriesPickerCollectionView: UICollectionView = {
